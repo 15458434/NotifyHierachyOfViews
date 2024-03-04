@@ -23,10 +23,14 @@ final class FlowTabController: UITabBarController {
         self.tabBar.isHidden = true
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLoad() {
         viewControllers!.compactMap { $0 as? RootModelHolder }
             .forEach({ $0.rootModel = self.model})
         
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         model.publisher(for: \.flowPage)
             .sink { [unowned self] newFlowPage in
                 guard newFlowPage != .notShown else {
