@@ -1,24 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RootViewController" customModule="NotifyHierachyExperiment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="We6-rn-l1u">
+                                <rect key="frame" x="143.66666666666666" y="421" width="106" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show Flow"/>
+                                <connections>
+                                    <action selector="showFlowTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O50-YU-f3H"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="We6-rn-l1u" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="5ek-fT-0QR"/>
+                            <constraint firstItem="We6-rn-l1u" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nGu-DE-7eS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="model" destination="iRb-gt-Hvq" id="CCp-uA-8vX"/>
+                        <segue destination="7m6-7h-cRG" kind="presentation" identifier="Open Flow" id="CgD-j9-3d6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="iRb-gt-Hvq" customClass="RootModel" customModule="NotifyHierachyExperiment" customModuleProvider="target"/>
             </objects>
+            <point key="canvasLocation" x="59" y="32"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="Umv-MQ-Kw4">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="sMR-lG-Swz" customClass="SecondFlowViewController" customModule="NotifyHierachyExperiment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f5j-IE-KFz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-Rl-QGB">
+                                <rect key="frame" x="102.66666666666669" y="379.33333333333331" width="188" height="34.333333333333314"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUc-f2-Gwu">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="back"/>
+                                        <connections>
+                                            <action selector="backTouchUpInside:" destination="sMR-lG-Swz" eventType="touchUpInside" id="iCw-jW-0Ab"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NI6-Zm-p2w">
+                                        <rect key="frame" x="94" y="0.0" width="94" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Compete"/>
+                                        <connections>
+                                            <action selector="completeTouchUpInside:" destination="sMR-lG-Swz" eventType="touchUpInside" id="IgK-IU-taX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wDO-r4-FWA"/>
+                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <constraints>
+                            <constraint firstItem="1h3-Rl-QGB" firstAttribute="centerY" secondItem="wDO-r4-FWA" secondAttribute="centerY" id="9Ch-qS-g50"/>
+                            <constraint firstItem="1h3-Rl-QGB" firstAttribute="centerX" secondItem="wDO-r4-FWA" secondAttribute="centerX" id="LSP-jm-qnr"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="cBZ-De-fLN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJJ-gA-fb2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1771" y="337"/>
+        </scene>
+        <!--item 1-->
+        <scene sceneID="TB9-eo-F4t">
+            <objects>
+                <viewController title="Fir" hidesBottomBarWhenPushed="YES" id="Jq9-ll-bnR" userLabel="item 1" customClass="FirstFlowViewController" customModule="NotifyHierachyExperiment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i43-Fw-8q6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onD-yM-nX9">
+                                <rect key="frame" x="133.66666666666666" y="379" width="125.99999999999997" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Go to second"/>
+                                <connections>
+                                    <action selector="goToSecondTouchUpInside:" destination="Jq9-ll-bnR" eventType="touchUpInside" id="H2g-Gw-d9e"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NH6-Df-s6F"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <constraints>
+                            <constraint firstItem="onD-yM-nX9" firstAttribute="centerX" secondItem="NH6-Df-s6F" secondAttribute="centerX" id="Suu-RZ-znO"/>
+                            <constraint firstItem="onD-yM-nX9" firstAttribute="centerY" secondItem="NH6-Df-s6F" secondAttribute="centerY" id="r7X-eg-gMB"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="vLG-ds-kQw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kTE-8z-Zy6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1771" y="-271"/>
+        </scene>
+        <!--Flow Tab Controller-->
+        <scene sceneID="ClP-2E-rWw">
+            <objects>
+                <tabBarController hidesBottomBarWhenPushed="YES" id="7m6-7h-cRG" customClass="FlowTabController" customModule="NotifyHierachyExperiment" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HlM-q7-ZLz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Jq9-ll-bnR" kind="relationship" relationship="viewControllers" id="Z0X-9B-RTw"/>
+                        <segue destination="sMR-lG-Swz" kind="relationship" relationship="viewControllers" id="DXw-3F-Ncf"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xjO-gx-9C0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="865" y="33"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
