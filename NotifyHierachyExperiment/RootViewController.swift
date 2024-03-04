@@ -14,7 +14,11 @@ final class RootViewController: UIViewController {
     private var bag = Set<AnyCancellable>(minimumCapacity: 1)
     
     @IBAction func showFlowTouchUpInside(_ sender: Any) {
-        model.flowPage = .firstPage
+        model.update(flowPage: .firstPage)
+    }
+    
+    @IBAction func showFlowWithDelayedButtonsTouchUpInside(_ sender: UIButton) {
+        model.update(flowPage: .firstPage, withDelayedButtons: true)
     }
     
     // MARK: UIViewController
@@ -28,6 +32,9 @@ final class RootViewController: UIViewController {
                 case .notShown:
                     self.dismiss(animated: true)
                 case .firstPage, .secondPage:
+                    guard model.isFlowShown == false else {
+                        return
+                    }
                     self.performSegue(withIdentifier: "Open Flow", sender: self)
                 }
             }

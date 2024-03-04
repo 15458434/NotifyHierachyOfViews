@@ -20,9 +20,20 @@ final class RootModel: NSObject {
     
     @objc dynamic var flowPage: FlowPageType = .notShown
     @objc dynamic var isFlowShown = false
+    @objc dynamic var showButtons = true
     
-    func update(flowPage: FlowPageType) {
+    func update(flowPage: FlowPageType, withDelayedButtons delayedButtons: Bool = false) {
         self.flowPage = flowPage
         self.isFlowShown = (flowPage != .notShown)
+        
+        if delayedButtons == true {
+            showButtons = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+                self?.showButtons = true
+            }
+        } else {
+            showButtons = true
+        }
+
     }
 }

@@ -17,20 +17,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="We6-rn-l1u">
-                                <rect key="frame" x="143.66666666666666" y="421" width="106" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show Flow"/>
-                                <connections>
-                                    <action selector="showFlowTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O50-YU-f3H"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jAa-TF-iJV">
+                                <rect key="frame" x="64" y="404.33333333333331" width="265" height="68.666666666666686"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="We6-rn-l1u">
+                                        <rect key="frame" x="0.0" y="0.0" width="265" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Show Flow"/>
+                                        <connections>
+                                            <action selector="showFlowTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O50-YU-f3H"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="med-Vf-zGH">
+                                        <rect key="frame" x="0.0" y="34.333333333333371" width="265" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Show flow with delayed buttons"/>
+                                        <connections>
+                                            <action selector="showFlowWithDelayedButtonsTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lb5-om-RZ8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="We6-rn-l1u" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="5ek-fT-0QR"/>
-                            <constraint firstItem="We6-rn-l1u" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nGu-DE-7eS"/>
+                            <constraint firstItem="jAa-TF-iJV" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="2Ym-St-58y"/>
+                            <constraint firstItem="jAa-TF-iJV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Fkg-FS-Zyv"/>
                         </constraints>
                     </view>
                     <connections>
@@ -81,6 +94,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="cBZ-De-fLN"/>
+                    <connections>
+                        <outlet property="buttons" destination="1h3-Rl-QGB" id="B7h-aC-SZE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DJJ-gA-fb2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -111,6 +127,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="vLG-ds-kQw"/>
+                    <connections>
+                        <outlet property="goToSecondButton" destination="onD-yM-nX9" id="VJI-cr-t2X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTE-8z-Zy6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
